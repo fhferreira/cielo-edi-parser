@@ -1,10 +1,7 @@
 # EdiParser
 Parser para o arquivo do tipo EDI, transmitido pela Cielo para conciliação bancária
 
-
-
-
-
+> Fork criado para ajuste de conciliação de cartões de Crédito CIELO
 
 [![Build Status](https://secure.travis-ci.org/Pandora-una/EdiParser.png?branch=master)](http://travis-ci.org/Pandora-una/EdiParser)
 [![Latest Stable Version](https://poser.pugx.org/pandora-una/edi-parser/v/stable)](https://packagist.org/packages/pandora-una/edi-parser) 

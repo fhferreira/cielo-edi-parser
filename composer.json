@@ -1,5 +1,5 @@
 {
-    "name": "pandora-una/edi-parser",
+    "name": "fhferreira/cielo-edi-parser",
     "type": "library",
     "description": "Projeto para processar arquivo retorno no formato EDI",
     "keywords": ["cielo", "edi", "retorno","concilar"],
@@ -8,6 +8,10 @@
         {
             "name": "Fabio Ginzel",
             "email": "fabio.ginzel@pandora.com.br"
+        },
+        {
+            "name": "Flávio Ferreira",
+            "email": "flaviometalvale@gmail.com"
         }
     ],
     "require-dev": {
