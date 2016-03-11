@@ -206,7 +206,7 @@ class DetalheRO extends LinhaAbstract
      */
     public function getBandeira($codigoBandeira)
     {
-        return $this->bandeiras[$codigoBandeira];
+        return isset($this->bandeiras[$codigoBandeira]) ? $this->bandeiras[$codigoBandeira] : $codigoBandeira;
     }
 
     /**
