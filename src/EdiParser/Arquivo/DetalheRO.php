@@ -257,7 +257,8 @@ class DetalheRO extends LinhaAbstract
      */
     public function getIdentificadorProdutoDesc($IdentificadorProduto = null)
     {
-        return $this->produtos[$IdentificadorProduto ? $IdentificadorProduto : $this->IdentificadorProduto];
+        $IdProduto = $IdentificadorProduto ? $IdentificadorProduto : $this->IdentificadorProduto;
+        return isset($this->produtos[$IdProduto]) ? $this->produtos[$IdProduto] : $IdProduto;
     }
 
     /**
