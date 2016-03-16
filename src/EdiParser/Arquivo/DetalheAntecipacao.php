@@ -25,7 +25,6 @@ class DetalheAntecipacao extends LinhaAbstract
             'usoCielo' => array('i'=>183,'t'=>68),
     );
 
-
     protected $numeroRO;
     protected $dtCreditoDaOperacao;
     protected $valorBruto;
@@ -43,25 +42,6 @@ class DetalheAntecipacao extends LinhaAbstract
     protected $valorLiquidoAntecipacao;
     protected $usoCielo;
 
-    /**
-     * @var array
-     */
-    protected $detalhesRO = array();
-    /**
-     * @param DetalheCV $detalheCV
-     */
-    public function addDetalheCV(DetalheRoAntecipado $detalheRO)
-    {
-        $this->detalhesRO[] = $detalheRO;
-    }
-
-    /**
-     * @return array
-     */
-    public function getDetalhesRO()
-    {
-        return $this->detalhesRO;
-    }
 
     /**
      * @return mixed
