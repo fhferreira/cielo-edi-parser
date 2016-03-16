@@ -17,7 +17,10 @@ class Arquivo {
 	const TIPO_TRAILER = 9;
 	const TIPO_DETALHE_RO = 1;
 	const TIPO_DETALHE_CV = 2;
-	
+
+    const TIPO_DETALHE_ANTECIPACAO = 5;
+    const TIPO_DETALHE_RO_ANTECIPADO = 6;
+
 	public function __construct($filename) {
 		if (!file_exists($filename))
 			throw new \Exception("Arquivo '$filename' não encontrado");
@@ -47,14 +50,22 @@ class Arquivo {
 					case self::TIPO_DETALHE_CV:
 					$lastDetalheRO->addDetalheCV(new DetalheCV($linha));
 					break;
+
+                    case self::TIPO_DETALHE_ANTECIPACAO:
+
+                    break;
+
+                    case self::TIPO_DETALHE_RO_ANTECIPADO:
+                    $lastDetalheRO = new DetalheROAntecipacao($linha);
+                    $this->detalhesRO[] = $lastDetalheRO;
+                    break;
 							
 					default:
-					throw new \Exception("Arquivo com tipo não conhecido");
+					throw new \Exception("Arquivo com tipo não conhecido: {$linha[0]}");
 					break;
 				}			
 			}				
 		}
-		
 	}
 	public function getTipo() {
 		return $this->header->getOpcaoDeExtrato();

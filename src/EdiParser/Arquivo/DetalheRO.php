@@ -113,24 +113,6 @@ class DetalheRO extends LinhaAbstract
     /**
      * @var array
      */
-    protected $bandeiras = array(
-        0 => "",
-        "001" => "VISA",
-        "002" => "Mastercard",
-        "006" => "SoroCred",
-        "007" => "ELO",
-        "009" => "Diners",
-        "011" => "Agiplan",
-        "015" => "Banescard",
-        "023" => "Cabal",
-        "029" => "Credsystem",
-        "035" => "Esplanada",
-        "064" => "Credz",
-    );
-
-    /**
-     * @var array
-     */
     protected $produtos = array(
         "001" => "Agiplan crédito à vista",
         "002" => "Agiplan parcelado loja",
@@ -185,11 +167,11 @@ class DetalheRO extends LinhaAbstract
         "070" => "Elo crédito",
         "071" => "Elo Débito a Vista",
         "072" => "Elo Parcelado Loja",
-        "079" => "Pagamento Carn? Visa Electron",
+        "079" => "Pagamento Carnê Visa Electron",
         "080" => "Visa crédito Conversor de Moeda*Produtos disponíveis em Abril/2014",
-        "081" => "Elo crédito Especializado***C?digos referentes aos cartões Construcard, Minha Casa Melhor, Producard e Moveiscard",
+        "081" => "Elo crédito Especializado***Códigos referentes aos cartões Construcard, Minha Casa Melhor, Producard e Moveiscard",
         "089" => "Elo crédito Imobiliário",
-        "091" => "Mastercard crédito Especializado***C?digos referentes aos cartões Construcard, Minha Casa Melhor, Producard e Moveiscard",
+        "091" => "Mastercard crédito Especializado***Códigos referentes aos cartões Construcard, Minha Casa Melhor, Producard e Moveiscard",
         "094" => "Banescard Débito",
         "096" => "Cabal crédito à vista",
         "097" => "Cabal Débito",
@@ -199,15 +181,6 @@ class DetalheRO extends LinhaAbstract
         "378" => "Master Carnê**Produtos disponíveis em Julho/2014",
         "380" => "Mastercard crédito Conversor de Moeda*Produtos disponíveis em Abril/2014",
     );
-
-    /**
-     * @param $codigoBandeira
-     * @return mixed
-     */
-    public function getBandeira($codigoBandeira)
-    {
-        return isset($this->bandeiras[$codigoBandeira]) ? $this->bandeiras[$codigoBandeira] : $codigoBandeira;
-    }
 
     /**
      * @var
@@ -419,9 +392,17 @@ class DetalheRO extends LinhaAbstract
     public function setTipoDeTransacao($tipoDeTransacao)
     {
         $tipoDeTransacao = (int)$tipoDeTransacao;
-        if (!in_array($tipoDeTransacao, array(self::TRANSACAO_AJUSTE_CREDITO, self::TRANSACAO_AJUSTE_DEBITO,
-                                             self::TRANSACAO_PACOTE_CIELO, self::TRANSACAO_REAGENDAMENTO,
-                                             self::TRANSACAO_VENDA))) {
+        if (!in_array(
+                $tipoDeTransacao,
+                array(
+                    self::TRANSACAO_AJUSTE_CREDITO,
+                    self::TRANSACAO_AJUSTE_DEBITO,
+                    self::TRANSACAO_PACOTE_CIELO,
+                    self::TRANSACAO_REAGENDAMENTO,
+                    self::TRANSACAO_VENDA
+                )
+            )
+        ) {
             throw new \Exception("Tipo de transação '$tipoDeTransacao' inválido");
         }
         
