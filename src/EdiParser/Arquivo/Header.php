@@ -40,6 +40,11 @@ class Header extends LinhaAbstract
 	const EXTRATO_PAGAMENTO_COM_CV = 4;
 
 	/**
+	 *
+	 */
+	const ANTECIPACAO_DE_RECEBIVEIS = 6;
+
+	/**
 	 * @return mixed
      */
 	public function getEstabelecimentoMatriz()
@@ -109,7 +114,7 @@ class Header extends LinhaAbstract
 	public function setOpcaoDeExtrato($opcaoDeExtrato)
     {
         $opcaoDeExtrato = (int)$opcaoDeExtrato;
-        if (!in_array($opcaoDeExtrato, array(self::EXTRATO_PAGAMENTO_COM_CV/*, self::EXTRATO_VENDA_COM_CV_MAIS_PARCELADO_FUTURO*/))) {
+        if (!in_array($opcaoDeExtrato, array(self::EXTRATO_PAGAMENTO_COM_CV, self::ANTECIPACAO_DE_RECEBIVEIS))) {
             throw new \Exception("Opção de extrato '$opcaoDeExtrato' inválida");
         }
         
